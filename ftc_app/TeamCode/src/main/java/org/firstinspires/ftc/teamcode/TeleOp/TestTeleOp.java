@@ -9,8 +9,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.teamcode.Hardware.DeuxBoot;
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="Kevin Tele-Op",group="TeleOp")
-public class kevinTeleOp extends OpMode {
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="One motor Tele-Op",group="TeleOp")
+public class TestTeleOp extends OpMode {
     DeuxBoot robot = new DeuxBoot();
     double speed;
     boolean buttonAheld = false;
@@ -54,11 +54,11 @@ public class kevinTeleOp extends OpMode {
 
     @Override
     public void loop() {
-        robot.tankDrive(gamepad1.left_stick_x,
-                gamepad1.left_stick_y,
-                gamepad1.right_stick_x,
+        robot.tankDrive(gamepad1.left_stick_y,
+                gamepad1.left_stick_x,
                 gamepad1.left_trigger,
-                gamepad1.right_trigger);
+                gamepad1.right_trigger,
+                speed);
 
 /*        telemetry.addData("FL Power", robot.FL.getPower());
         telemetry.addData("FR Power", robot.FR.getPower());
