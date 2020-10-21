@@ -131,7 +131,7 @@ DeuxBoot{
      * @param leftTrigger The power levels from the left Trigger
      * @param rightTrigger The power levels from the left Trigger.
      */
-    public void notKevinDrive(double leftStick_y, double leftStick_x, double leftTrigger, double rightTrigger, double speed) {
+    public void gameDrive(double leftStick_y, double leftStick_x, double leftTrigger, double rightTrigger, double speed) {
         leftStick_y *= -1;
         if (leftTrigger > .3) {
             drive(Movement.LEFTSTRAFE, leftTrigger);
