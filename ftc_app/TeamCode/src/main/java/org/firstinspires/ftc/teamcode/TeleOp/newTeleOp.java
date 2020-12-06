@@ -14,22 +14,20 @@ public class newTeleOp extends OpMode {
     DeuxBoot robot = new DeuxBoot();
     double speed;
     boolean buttonAheld = false;
-    boolean grabberClosed = true;
+    boolean wobble2Closed = true;
     boolean buttonBheld = false;
-    boolean hingedClosed = true;
-    boolean buttonXheld = false;
-    boolean spinnerClosed = false;
+    boolean outakeClosed = true;
     boolean buttonYheld = false;
-    boolean foundationClosed = false;
+    boolean wobble1Closed = false;
+    //boolean buttonXheld = false;
+    //boolean spinnerClosed = false;
+
 
     @Override
     public void init() {
         robot.initNew(hardwareMap);
 
-        robot.leftBlue.setPosition(0);
-        robot.leftPurp.setPosition(1);
-        robot.rightBlue.setPosition(1);
-        robot.rightPurp.setPosition(0);
+        
 
     }
 
@@ -54,9 +52,11 @@ public class newTeleOp extends OpMode {
                 gamepad1.right_trigger,
                 speed);
 
-        robot.lift.setPower(gamepad2.right_stick_y);
-        robot.intakeL.setPower(gamepad2.left_stick_y*0.50);
-        robot.intakeR.setPower(-gamepad2.left_stick_y*0.50);
+        robot.intake.setPower(gamepad2.right_stick_y);
+        robot.intake1.setPower(gamepad2.right_trigger*0.50);
+        robot.intake2.setPower(gamepad2.right_trigger*0.50);
+        robot.intake1.setPower(gamepad2.left_trigger*0.40);
+        robot.intake2.setPower(gamepad2.left_trigger*0.40);
 
         if (gamepad1.b) {
             speed = 0.25;
@@ -67,22 +67,20 @@ public class newTeleOp extends OpMode {
         }
         telemetry.addData("Speed", speed);
 
-        if (gamepad2.dpad_right) {
-            robot.extend.setPosition(0);
-        } else if (gamepad2.dpad_left){
-            robot.extend.setPosition(1);
-        }
+        //if (gamepad2.dpad_right) {
+          //  robot.extend.setPosition(0);
+        //} else if (gamepad2.dpad_left){
+          //  robot.extend.setPosition(1);
+        //}
 
         if (gamepad2.y && !buttonYheld) {
             buttonYheld = true;
-            if (foundationClosed) {
-                foundationClosed = false;
-                robot.foundationLeft.setPosition(1);
-                robot.foundationRight.setPosition(0);
+            if (wobble1Closed) {
+                wobble1Closed = false;
+                robot.wobble1.setPosition(1);
             } else {
-                foundationClosed = true;
-                robot.foundationLeft.setPosition(0);
-                robot.foundationRight.setPosition(1);
+                wobble1Closed = true;
+                robot.wobble1.setPosition(0);
             }
         }
 
@@ -93,12 +91,12 @@ public class newTeleOp extends OpMode {
 
         if (gamepad2.a && !buttonAheld) {
             buttonAheld = true;
-            if (grabberClosed) {
-                grabberClosed = false;
-                robot.grabber.setPosition(1);
+            if (wobble2ClosedClosed) {
+                wobble2Closed = false;
+                robot.wobble2.setPosition(1);
             } else {
-                grabberClosed = true;
-                robot.grabber.setPosition(0);
+                wobble2Closed = true;
+                robot.wobble2.setPosition(0);
             }
         }
 
@@ -108,14 +106,12 @@ public class newTeleOp extends OpMode {
 
         if (gamepad2.b && !buttonBheld) {
             buttonBheld = true;
-            if (hingedClosed) {
-                hingedClosed = false;
-                robot.hinge.setPosition(1);
-                robot.spinner.setPosition(1);
+            if (outakeClosed) {
+                outakeClosed = false;
+                robot.outake.setPosition(1);
+
             } else {
-                hingedClosed = true;
-                robot.hinge.setPosition(0.1);
-                robot.spinner.setPosition(0);
+                outakeClosed = true;
             }
         }
 
@@ -123,7 +119,7 @@ public class newTeleOp extends OpMode {
             buttonBheld = false;
         }
 
-        if (gamepad2.x && !buttonXheld) {
+/*        if (gamepad2.x && !buttonXheld) {
             buttonXheld = true;
             if (spinnerClosed) {
                 spinnerClosed = false;

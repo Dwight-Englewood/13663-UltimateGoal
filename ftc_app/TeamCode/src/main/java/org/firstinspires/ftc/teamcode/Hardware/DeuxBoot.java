@@ -11,11 +11,10 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 public class
 DeuxBoot{
     public DcMotor
-            BL, BR, FL, FR, lift, intakeL, intakeR;
+            BL, BR, FL, FR, intake, thing1, thing2;
 
     public Servo
-            closer, hinger, foundationLeft, foundationRight,
-            leftBlue, leftPurp, rightBlue, rightPurp, hinge, spinner, grabber, extend;
+            wobble1, wobble2, outake;
 
     public float curHeading;
 
@@ -43,30 +42,24 @@ DeuxBoot{
         FL.setDirection(DcMotorSimple.Direction.FORWARD);
         FR.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        lift = this.map.get(DcMotor.class, "lift");
-        lift.setDirection(DcMotorSimple.Direction.FORWARD);
-        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        intake = this.map.get(DcMotor.class, "intake");
+        intake.setDirection(DcMotorSimple.Direction.FORWARD);
+        intake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        intakeL = this.map.get(DcMotor.class, "intakeL");
-        intakeL.setDirection((DcMotorSimple.Direction.REVERSE));
-        intakeL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        thing1 = this.map.get(DcMotor.class, "thing1");
+        thing1.setDirection((DcMotorSimple.Direction.REVERSE));
+        thing1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        intakeR = this.map.get(DcMotor.class, "intakeR");
-        intakeR.setDirection((DcMotorSimple.Direction.REVERSE));
-        intakeR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        thing2 = this.map.get(DcMotor.class, "thing2");
+        thing2.setDirection((DcMotorSimple.Direction.REVERSE));
+        thing2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        foundationLeft = this.map.get(Servo.class, "fleft");
-        foundationRight = this.map.get(Servo.class, "fright");
+        wobble1 = this.map.get(Servo.class, "wobble1");
+        wobble2 = this.map.get(Servo.class, "wobble2");
 
-        leftBlue = this.map.get(Servo.class, "leftBlue");
-        leftPurp = this.map.get(Servo.class, "leftPurp");
-        rightBlue = this.map.get(Servo.class, "rightBlue");
-        rightPurp = this.map.get(Servo.class, "rightPurp");
+        outake = this.map.get(Servo.class, "outake");
 
-        hinge = this.map.get(Servo.class, "hinge");
-        spinner = this.map.get(Servo.class, "spinner");
-        grabber = this.map.get(Servo.class, "grabber");
-        extend = this.map.get(Servo.class, "extend");
+
 
         this.changeRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
