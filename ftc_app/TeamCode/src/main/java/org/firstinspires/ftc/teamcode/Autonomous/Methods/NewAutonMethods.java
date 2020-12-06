@@ -20,10 +20,10 @@ import java.util.ArrayList;
 
 public class NewAutonMethods {
     public DcMotor
-            BL, BR, FL, FR, lift, intakeL, intakeR, tape;
+            BL, BR, FL, FR, intake, thing1, thing2;
 
     public static Servo
-            closer, hinger, foundationLeft, foundationRight, leftPurp, rightPurp, leftBlue, rightBlue, spinner, grabber, extend;
+            wobble1, wobble2, outake;
 
     HardwareMap map;
     Telemetry tele;

@@ -53,10 +53,10 @@ public class newTeleOp extends OpMode {
                 speed);
 
         robot.intake.setPower(gamepad2.right_stick_y);
-        robot.intake1.setPower(gamepad2.right_trigger*0.50);
-        robot.intake2.setPower(gamepad2.right_trigger*0.50);
-        robot.intake1.setPower(gamepad2.left_trigger*0.40);
-        robot.intake2.setPower(gamepad2.left_trigger*0.40);
+        robot.thing1.setPower(gamepad2.right_trigger*0.50);
+        robot.thing2.setPower(gamepad2.right_trigger*0.50);
+        robot.thing1.setPower(gamepad2.left_trigger*0.40);
+        robot.thing2.setPower(gamepad2.left_trigger*0.40);
 
         if (gamepad1.b) {
             speed = 0.25;
