@@ -104,19 +104,13 @@ public class newTeleOp extends OpMode {
             buttonAheld = false;
         }
 
-        if (gamepad2.b && !buttonBheld) {
-            buttonBheld = true;
-            if (outakeClosed) {
-                outakeClosed = false;
-                robot.outake.setPosition(1);
+        if (gamepad2.b) {
+            robot.outake.setPosition(1);
 
-            } else {
-                outakeClosed = true;
-            }
+        } else {
+            robot.outake.setPosition(0);
         }
 
-        if (!gamepad2.b) {
-            buttonBheld = false;
         }
 
 /*        if (gamepad2.x && !buttonXheld) {
